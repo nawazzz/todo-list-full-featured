@@ -9,11 +9,14 @@ class List extends React.Component {
         <div>
           <ul>
           {this.props.view === "completed" || this.props.view === "remaining" ? 
+          // JSON.parse(window.localStorage.getItem("this.state.allTodo")).length < 1 ?
             this.props.filteredTab.map((elm,index) => {
               return (
                 <div>                  
                   <li 
+                    
                     style={{textDecoration: `${elm.isCompleted === true ? "line-through" : "none"}`}} onClick={() => this.props.updateList(elm.text, elm.id)}
+                    className="listsStyle"
                   >
                     <input checked={elm.isCompleted} onClick={(e) => {
                       e.stopPropagation()
